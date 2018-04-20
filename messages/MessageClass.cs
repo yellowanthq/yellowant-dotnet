@@ -1,18 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace yellowantSDK
+
+    /*
+     * This is YellowAnt MessageClass. Messages to be sent should be in this format.Please refer to YellowAnt API/Docs
+     * to know more about how these messages are displayed to end user in Messaging App
+     */
 {
     public class MessageClass
     {
-        public string MessageText;
+        [JsonProperty(PropertyName = "message_text")]
+        public string MessageText { get; set; }
+
+        [JsonProperty(PropertyName = "attachments")]
         public List<MessageAttachmentsClass> Attachments = new List<MessageAttachmentsClass>();
+
+        [JsonProperty(PropertyName = "requester_application")]
+        public int RequesterApplication { get; set; }
+
         public MessageClass(string MessageText = "")
         {
             this.MessageText = MessageText;
+            
         }
 
         public void Attach(MessageAttachmentsClass MessageAttachment)

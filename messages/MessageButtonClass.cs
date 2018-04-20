@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace yellowantSDK
 {
+    /*
+     * ButtonClass are actionable buttons dispalyed in users Console/Messagin App.
+     * Note that 'Command' property is of 'dynamic' Type. This is because structure of 'Command' can change
+     * with each new 'Functions/Commands'
+     */ 
+
     public class MessageButtonClass
     {
-        public string Value, Name, Text;
-        public Command command = new Command();
+        [JsonProperty(PropertyName = "value")]
+        public string Value;
 
-        public  MessageButtonClass(Command command, string Value = "", string Name = "")
+        [JsonProperty(PropertyName = "text")]
+        public string Text { get; set; }
+
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
+        [JsonProperty(PropertyName = "command")]
+        public dynamic Command = null;
+
+        public MessageButtonClass(dynamic Command = null, string Value = "", string Name = "")
         {
+
             this.Value = Value;
             this.Name = Name;
-            // this.Text = Text;
-
+            this.Command = Command;
+            
         }
 
     }
 
-    public class Command
-    {
-
-    }
+    
 }

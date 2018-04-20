@@ -64,7 +64,6 @@
     <Compile Include="messages\MessageAttachmentsClass.cs" />
     <Compile Include="messages\MessageButtonClass.cs" />
     <Compile Include="messages\MessageClass.cs" />
-    <Compile Include="test.cs" />
     <Compile Include="yellowant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
