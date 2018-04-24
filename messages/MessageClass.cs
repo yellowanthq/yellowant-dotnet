@@ -19,9 +19,13 @@ namespace yellowantSDK
         [JsonProperty(PropertyName = "requester_application")]
         public int RequesterApplication { get; set; }
 
-        public MessageClass(string MessageText = "")
+        [JsonProperty(PropertyName = "data")]
+        public dynamic MessageData { get; set; }
+
+        public MessageClass(string MessageText = "", dynamic MessageData = null)
         {
             this.MessageText = MessageText;
+            this.MessageData = MessageData;
             
         }
 

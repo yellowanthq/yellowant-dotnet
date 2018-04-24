@@ -19,7 +19,7 @@ namespace yellowantSDK
         HttpClient client = new HttpClient();
         public string AppKey, AppSecret, AccessToken, RedirectURI;
         public string TokenType, OAuthVersion, APIVersion;
-        public static string APIUrl = "http://api.yellowant.com/api/";
+        public static string APIUrl = "https://api.yellowant.com/api/";
 
         public Yellowant(string AppKey = "", string AppSecret = "", string RedirectURI = "", string AccessToken = "")
         {
@@ -141,10 +141,10 @@ namespace yellowantSDK
         }
 
         //Send Webhook Messages to users' account. 
-        public object SendWebhookMessage(int IntegratonID, int WebHookSubscriptionID, MessageClass message)
+        public object SendWebhookMessage(int IntegratonID, string WebhookFunctionName, MessageClass message)
         {
             string Data = JsonConvert.SerializeObject(message);
-            string url = String.Format("user/application/webhook/{0}/", WebHookSubscriptionID);
+            string url = String.Format("user/application/webhook/{0}/", WebhookFunctionName);
             var result = PostRequest(url, Data: Data).Result;
             dynamic RObject = JsonConvert.DeserializeObject(result);
             return RObject;

@@ -292,6 +292,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+*.nuspec
 
 ### VisualStudio Patch ###
 # By default, sensitive information, such as encrypted password
