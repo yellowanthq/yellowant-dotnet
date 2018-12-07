@@ -19,9 +19,8 @@ namespace yellowantSDK
         HttpClient client = new HttpClient();
         public string AppKey, AppSecret, AccessToken, RedirectURI;
         public string TokenType, OAuthVersion, APIVersion;
-        public static string APIUrl = "https://api.yellowant.com/api/";
 
-        public Yellowant(string AppKey = "", string AppSecret = "", string RedirectURI = "", string AccessToken = "")
+        public Yellowant(string AppKey = "", string AppSecret = "", string RedirectURI = "", string AccessToken = "", string APIUrl="https://api.yellowant.com/api/")
         {
             this.AppSecret = AppSecret;
             this.AppKey = AppKey;
